@@ -1,10 +1,10 @@
-// ParseInt() With Radix
+// Ternary Operator
 
-function convertToInteger(str){
-    return parseInt(str,2)
-}
+//a ? b : c
+// a is condition , b true , c false
 
-convertToInteger("10011")
-
-// first alaphabet not a number
-// 2 binary , 10 decimal , 16 for hex
+function findGreaterOrEqual(a, b) {
+    return (a === b) ? "a and b are equal" 
+      : (a > b) ? "a is greater" 
+      : "b is greater";
+  }
