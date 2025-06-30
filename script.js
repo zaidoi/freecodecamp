@@ -1,10 +1,12 @@
-// Ternary Operator
+// Recursion of two numbers
 
-//a ? b : c
-// a is condition , b true , c false
-
-function findGreaterOrEqual(a, b) {
-    return (a === b) ? "a and b are equal" 
-      : (a > b) ? "a is greater" 
-      : "b is greater";
+function rangeOfNumbers(startNum, endNum) {
+    if (startNum > endNum) {
+      return []; // base case
+    } else {
+      const countArray = rangeOfNumbers(startNum, endNum - 1);
+      countArray.push(endNum);
+      return countArray;
+    }
   }
+  
