@@ -1,12 +1,13 @@
-// Recursion of two numbers
+// spread and rest
+//spread
+let arr1 = [1,3,5]
+let arr3 = [...arr1]
+console.log(arr3); // [1,3,5]
 
-function rangeOfNumbers(startNum, endNum) {
-    if (startNum > endNum) {
-      return []; // base case
-    } else {
-      const countArray = rangeOfNumbers(startNum, endNum - 1);
-      countArray.push(endNum);
-      return countArray;
-    }
-  }
-  
+// rest
+
+function rest (...args){
+    return args
+}
+
+rest("ss0",1,4)  // takes multiple argument and makes array
