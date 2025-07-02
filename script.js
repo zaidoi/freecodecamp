@@ -1,15 +1,18 @@
-// class constructor
-
-class Thermostat{
-  constructor(temperature){
-    this._temperature = temperature
+const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer is set to true to represent a successful response from a server
+  let responseFromServer = false;
+	
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {	
+    reject("Data not received");
   }
+});
 
-  get thermos(){
-    return this._temperature
-  }
-
-  set thermos(updatethermos){
-    this.temperature = updatethermos
-  }
-}
+makeServerRequest.then(result => {
+  console.log(result);
+});
+makeServerRequest.catch(error => {
+  console.log(error);
+  
+})
