@@ -1,20 +1,13 @@
-const makeServerRequest = new Promise((resolve, reject) => {
-  // responseFromServer is set to true to represent a successful response from a server
-  let responseFromServer = false;
-	
-  if(responseFromServer) {
-    resolve("We got the data");
-  } else {	
-    reject("Data not received");
-  }
-});
-
-makeServerRequest.then(result => {
-  console.log(result);
-});
-makeServerRequest.catch(error => {
-  console.log(error);
-  
-})
-
-// Important
+var maximumWealth = function(accounts) {
+    let arr = [];
+    let result = 0;
+    for(let i = 0; i < accounts.length; i++){
+        for(let j = 0; j < accounts[i].length; j++){
+            result += accounts[i][j]
+        }
+            arr.push(result)
+            result = 0;
+    }
+    const richestMan = Math.max(...arr)
+    return richestMan
+};
