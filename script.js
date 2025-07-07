@@ -1,13 +1,19 @@
-var maximumWealth = function(accounts) {
-    let arr = [];
-    let result = 0;
-    for(let i = 0; i < accounts.length; i++){
-        for(let j = 0; j < accounts[i].length; j++){
-            result += accounts[i][j]
+
+
+    function findLongestWordLength(str) {
+        let splitArr = str.split(' ');
+        let longest = ''
+        for(let i = 0; i < splitArr.length; i++){
+            if(splitArr[i].length > longest.length){
+                longest = splitArr[i]
+            }
         }
-            arr.push(result)
-            result = 0;
-    }
-    const richestMan = Math.max(...arr)
-    return richestMan
-};
+        return longest.length
+      }
+      
+      
+      
+      const j = findLongestWordLength('The quick brown fox jumped over the lazy dog fgggggggg');
+      console.log(j);
+      
+    
