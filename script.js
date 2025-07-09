@@ -1,8 +1,12 @@
-function frankenSplice(arr1, arr2, n) {
-   let resultarr = arr2.slice()
-   resultarr.splice(n,0,...arr1)
-    console.log(resultarr);
+function getIndexToIns(arr, num) {
+    arr.sort((a,b) => a-b)
+    for(let i=0; i < arr.length; i++){
+      if(arr[i] >= num){
+     return i
+      }
+    }
+      return arr.length
     
-   }
-   
-   frankenSplice([1, 2, 3], [4,5], 1);
+    }
+    
+    getIndexToIns([40, 60], 50);
