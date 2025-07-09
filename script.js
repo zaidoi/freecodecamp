@@ -1,12 +1,9 @@
-function getIndexToIns(arr, num) {
-    arr.sort((a,b) => a-b)
-    for(let i=0; i < arr.length; i++){
-      if(arr[i] >= num){
-     return i
-      }
+function chunkArrayInGroups(arr, size) {
+    const newArr = [];
+    for(let i= 0; i<arr.length; i+=size){
+        newArr.push(arr.slice(i,i+size))
     }
-      return arr.length
-    
-    }
-    
-    getIndexToIns([40, 60], 50);
+     
+  }
+  
+  chunkArrayInGroups([0,1,2,3,4,5], 2);
