@@ -1,9 +1,9 @@
-function chunkArrayInGroups(arr, size) {
-    const newArr = [];
-    for(let i= 0; i<arr.length; i+=size){
-        newArr.push(arr.slice(i,i+size))
-    }
-     
+Array.prototype.myMap = function(callback) {
+    const newArray = [];
+    // Only change code below this line
+  for(let i = 0; i < this.length; i++){
+    newArray.push(callback(this[i],i,this))
   }
-  
-  chunkArrayInGroups([0,1,2,3,4,5], 2);
+    // Only change code above this line
+    return newArray;
+  };
