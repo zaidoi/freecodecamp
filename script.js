@@ -1,11 +1,13 @@
-Array.prototype.myFilter = function(callback) {
-  const newArray = [];
+function getRating(watchList) {
   // Only change code below this line
-for(let i = 0; this.length; i++){
-  if(Boolean(callback(this[i],i,this)) === true){
-    newArray.push(this[i])
-  }
-}
+  
+  const nolanMovies = watchList.filter(movie => movie.Director === "Christopher Nolan")
+
+  const totalRating = nolanMovies.reduce((sum,movie) => sum + Number(movie.imdbRating),0)
+
+  let averageRating = totalRating/nolanMovies.length;
   // Only change code above this line
-  return newArray;
-};
+  return averageRating;
+}
+
+console.log(getRating(watchList));
