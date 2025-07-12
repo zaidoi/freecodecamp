@@ -1,13 +1,12 @@
-function getRating(watchList) {
+function add(x) {
   // Only change code below this line
-  
-  const nolanMovies = watchList.filter(movie => movie.Director === "Christopher Nolan")
-
-  const totalRating = nolanMovies.reduce((sum,movie) => sum + Number(movie.imdbRating),0)
-
-  let averageRating = totalRating/nolanMovies.length;
-  // Only change code above this line
-  return averageRating;
+return function(y){
+  return function(z){
+    return x + y +z
+  }
 }
 
-console.log(getRating(watchList));
+  // Only change code above this line
+}
+
+add(10)(20)(30);
