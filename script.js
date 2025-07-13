@@ -1,18 +1,12 @@
-function diffArray(arr1, arr2) {
-  const newArr = [];
-for(let i = 0; i < arr1.length; i++){
-  if(!arr2.includes(arr1[i])){
-    newArr.push(arr1[i])
-  }
-}
-for(let i = 0; i < arr2.length; i++){
-  if(!arr1.includes(arr2[i])){
-    newArr.push(arr2[i])
-  }
+function whatIsInAName(collection, source) {
+  let sourceKeys = Object.keys(source)
+
+  let result = collection.filter((item) => sourceKeys.every((key) => item[key] === source[key]))
+  return result
 }
 
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
 
-  return newArr;
-}
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "cookie": 2 }) 
 
-diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+//should return [{ "apple": 1, "bat": 2, "cookie": 2 }].
