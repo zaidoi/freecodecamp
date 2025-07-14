@@ -1,22 +1,13 @@
-function pairElement(str) {
-  const getEl = function(char){
-    switch(char){
-      case 'A':
-      return ['A', 'T'];
-      case 'T':
-      return ['T','A'];
-      case 'G':
-      return ['G','C'];
-      case 'C':
-      return ['C','G'];
-    }
-  }
+function fearNotLetter(str) {
+  for(let i = 0; i < str.length;i++){
+    const charcode = str.charCodeAt(i);
 
-  let newArr = []
-  for(let i =0; i<str.length; i++){
-    newArr.push(getEl(str[i]))
+    if(charcode !== str.charCodeAt(0) + i){
+      return String.fromCharCode(charcode -1);
+    }
+
   }
-  return newArr
+  return undefined
 }
 
-pairElement("GCG");
+fearNotLetter("abce");
