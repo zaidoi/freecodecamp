@@ -1,12 +1,22 @@
-function whatIsInAName(collection, source) {
-  let sourceKeys = Object.keys(source)
+function pairElement(str) {
+  const getEl = function(char){
+    switch(char){
+      case 'A':
+      return ['A', 'T'];
+      case 'T':
+      return ['T','A'];
+      case 'G':
+      return ['G','C'];
+      case 'C':
+      return ['C','G'];
+    }
+  }
 
-  let result = collection.filter((item) => sourceKeys.every((key) => item[key] === source[key]))
-  return result
+  let newArr = []
+  for(let i =0; i<str.length; i++){
+    newArr.push(getEl(str[i]))
+  }
+  return newArr
 }
 
-whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
-
-whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "cookie": 2 }) 
-
-//should return [{ "apple": 1, "bat": 2, "cookie": 2 }].
+pairElement("GCG");
