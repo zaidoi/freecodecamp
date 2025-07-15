@@ -1,13 +1,14 @@
-function fearNotLetter(str) {
-  for(let i = 0; i < str.length;i++){
-    const charcode = str.charCodeAt(i);
-
-    if(charcode !== str.charCodeAt(0) + i){
-      return String.fromCharCode(charcode -1);
+function uniteUnique(...arr) {
+  let finalArr = [];
+  
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      if (!finalArr.includes(arr[i][j])) {
+        finalArr.push(arr[i][j]);
+      }
     }
-
   }
-  return undefined
-}
-
-fearNotLetter("abce");
+  return finalArr
+  }
+  
+  uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
