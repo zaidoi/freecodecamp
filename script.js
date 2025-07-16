@@ -1,14 +1,34 @@
-function uniteUnique(...arr) {
-  let finalArr = [];
-  
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr[i].length; j++) {
-      if (!finalArr.includes(arr[i][j])) {
-        finalArr.push(arr[i][j]);
-      }
+function convertHTML(str) {
+  // Split by character to avoid problems.
+
+  var temp = str.split("");
+
+  // Since we are only checking for a few HTML elements, use a switch
+
+  for (var i = 0; i < temp.length; i++) {
+    switch (temp[i]) {
+      case "<":
+        temp[i] = "&lt;";
+        break;
+      case "&":
+        temp[i] = "&amp;";
+        break;
+      case ">":
+        temp[i] = "&gt;";
+        break;
+      case '"':
+        temp[i] = "&quot;";
+        break;
+      case "'":
+        temp[i] = "&apos;";
+        break;
     }
   }
-  return finalArr
-  }
-  
-  uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+  temp = temp.join("");
+  return temp;
+}
+
+//test here
+convertHTML("Dolce & Gabbana");
+
