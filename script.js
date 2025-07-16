@@ -1,34 +1,17 @@
-function convertHTML(str) {
-  // Split by character to avoid problems.
-
-  var temp = str.split("");
-
-  // Since we are only checking for a few HTML elements, use a switch
-
-  for (var i = 0; i < temp.length; i++) {
-    switch (temp[i]) {
-      case "<":
-        temp[i] = "&lt;";
-        break;
-      case "&":
-        temp[i] = "&amp;";
-        break;
-      case ">":
-        temp[i] = "&gt;";
-        break;
-      case '"':
-        temp[i] = "&quot;";
-        break;
-      case "'":
-        temp[i] = "&apos;";
-        break;
-    }
+function isPrime(n){
+  if(n<2) return false;
+  for(let i = 2; i <= Math.sqrt(n); i++){
+    if(n % i === 0) return false;
   }
-
-  temp = temp.join("");
-  return temp;
+  return true;
 }
 
-//test here
-convertHTML("Dolce & Gabbana");
-
+function sumPrimes(num){
+  let sum = 0;
+  for(let i = 2; i <=num; i++){
+    if(isPrime(i)){
+      sum += i
+    }
+  }
+  return sum
+}
