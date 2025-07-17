@@ -1,20 +1,12 @@
-function smallestCommons(arr) {
-  const [min,max] = arr.sort((a,b) => a - b)
-  const range = []
-  for(let i  = min;  i <= max; i++){
-    range.push(i)
+function dropElements(arr, func) {
+  while(arr.length > 0){
+  if(func(arr[0])){
+    console.log(arr);
+    return arr
+  }else{
+    arr.shift()
   }
-
-  let maxNumber = max;
-  while(true){
-    let isCommon = range.every((num) => maxNumber % num === 0)
-    if(isCommon){
-      return maxNumber
-    }
-    maxNumber++;
-  }
-
-
- }
- 
- smallestCommons([1,5]);
+return []
+}
+}
+dropElements([0, 1, 0,1], function(n) {return n === 1; });
