@@ -1,17 +1,20 @@
-function isPrime(n){
-  if(n<2) return false;
-  for(let i = 2; i <= Math.sqrt(n); i++){
-    if(n % i === 0) return false;
+function smallestCommons(arr) {
+  const [min,max] = arr.sort((a,b) => a - b)
+  const range = []
+  for(let i  = min;  i <= max; i++){
+    range.push(i)
   }
-  return true;
-}
 
-function sumPrimes(num){
-  let sum = 0;
-  for(let i = 2; i <=num; i++){
-    if(isPrime(i)){
-      sum += i
+  let maxNumber = max;
+  while(true){
+    let isCommon = range.every((num) => maxNumber % num === 0)
+    if(isCommon){
+      return maxNumber
     }
+    maxNumber++;
   }
-  return sum
-}
+
+
+ }
+ 
+ smallestCommons([1,5]);
