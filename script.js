@@ -1,30 +1,25 @@
-function addTogether(a,b) {
-  function check(num){
-    return typeof(num) === "number"
+const Person = function(first, last) {
+  let firstName = first;
+  let lastName = last;
+
+  this.getFirstName = function (){
+    return firstName
+  }
+  this.getLastName = function (){
+    return lastName
+  }
+  this.getFullName = function (){
+    return firstName + " " + lastName
   }
 
-  if(arguments.length === 2){
-    if(check(a) && check(b)){
-      return a + b
-    }else{
-      return undefined
-    }
+  this.setFirstName = function(newFirst){
+    firstName = newFirst
   }
-
-  if(arguments.length === 1 && check(a)){
-    return function(){
-      if(check(n)){
-      return a + n
-      }
-    }
-    }else{
-      return undefined
-    }
-
-    return undefined
+  this.setLastName = function(newLast){
+    lastName = newLast
   }
-
-  
-
-
-addTogether(2);
+  this.setFullName = function(newFirst,newLast){
+    firstName = newFirst
+    lastName = newLast
+  }
+};
