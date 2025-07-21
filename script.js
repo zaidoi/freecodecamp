@@ -1,25 +1,21 @@
-const Person = function(first, last) {
-  let firstName = first;
-  let lastName = last;
+function translatePigLatin(str) {
+  let firstWord = str[0]
 
-  this.getFirstName = function (){
-    return firstName
-  }
-  this.getLastName = function (){
-    return lastName
-  }
-  this.getFullName = function (){
-    return firstName + " " + lastName
+  if(str.match(/^[aeiou]/)){
+    str  = str + "way"
+    console.log(str);
+  }else{
+    for(let i = 0; i < str.length; i++){
+      if(str.match(/^[aeiou]/)  == str[i]){
+       console.log(3);
+
+      }
+    }
+    
   }
 
-  this.setFirstName = function(newFirst){
-    firstName = newFirst
-  }
-  this.setLastName = function(newLast){
-    lastName = newLast
-  }
-  this.setFullName = function(newFirst,newLast){
-    firstName = newFirst
-    lastName = newLast
-  }
-};
+  
+  
+}
+
+translatePigLatin("california");
