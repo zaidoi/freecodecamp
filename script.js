@@ -1,21 +1,24 @@
-function translatePigLatin(str) {
-  let firstWord = str[0]
+const userLeft = false
+const userWatchingCatMeme = false
 
-  if(str.match(/^[aeiou]/)){
-    str  = str + "way"
-    console.log(str);
+let watchTutorialCallback = new Promise((resolve,reject) => {
+  if(userLeft){
+    reject({
+      name:"User Left",
+      message: ':('
+    })
+  }else if(userWatchingCatMeme){
+    reject({
+      name:'User watching Cat Meme',
+      message: 'WevDevSimplied < Cat'
+    })
   }else{
-    for(let i = 0; i < str.length; i++){
-      if(str.match(/^[aeiou]/)  == str[i]){
-       console.log(3);
-
-      }
-    }
-    
+  resolve('Thumbs up and Subscribe')
   }
+})
 
-  
-  
-}
-
-translatePigLatin("california");
+watchTutorialCallback.then((message) =>{
+  console.log(message);
+}).catch((message)=>{
+  console.log(message)
+})
