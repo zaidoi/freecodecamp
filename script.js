@@ -1,3 +1,8 @@
-let promise = new Promise((resolve, reject) => {
-  setTimeout(() => resolve('Done'),1000)
-})
+// URL (required), options (optional)
+fetch('https://url.com/some/url')
+  .then(function(response) {
+    // Successful response :)
+  })
+  .catch(function(err) {
+    // Error :(
+  });

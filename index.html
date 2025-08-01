@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    img{
+        width: 300px;
+        height: 200px;
+    }
+    input{
+        border-radius: 2px;
+        border: solid 1px black
+    }
+    button{
+        padding: 5px;
+        border-radius: 2px;
+    }
+label{
+    font-size: 18px;
+}
+  </style>
+</head>
+<body>
+  <img src="#">
+  <br>
+  <label for="gif">Name gif you want</label>
+  <input type="text" required pattern="[A-Za-z]+" >
+  <button>fetch</button>
+  <script>
+    const input = document.querySelector('input')
+    const btn = document.querySelector('button')
+    const img = document.querySelector('img');
+
+    btn.addEventListener('click',(e)=>{
+        e.preventDefault()
+        const name = input.value
+        if(name === "" ){
+            return alert("Enter Valid Name")
+        }
+        if(img.style.display === "none"){
+            img.style.display = "block"
+        }
+        fetch(`https://api.giphy.com/v1/gifs/translate?api_key=2XUPtSo83JDmmscLNSJvM0wMLIuaezGr&s=${name}`, {mode: 'cors'}).then(function(response){
+            return response.json()
+        }).catch(function(error){
+          console.log(error);
+        })
+        .then(function(response){
+            if(response.data.images.original.url === ""){
+                return alert("No Such Gif")
+                input.value = ''
+            }else{
+            img.src = response.data.images.original.url
+        input.value = ''}
+        })
+        
+    })
+    
+  </script>
+</body>
+</html>
